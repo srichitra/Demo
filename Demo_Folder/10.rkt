@@ -1,0 +1,29 @@
+;; The first three lines of this file were inserted by DrRacket. They record metadata
+;; about the language level of this file in a form that our tools can easily process.
+#reader(lib "htdp-beginner-reader.ss" "lang")((modname |10|) (read-case-sensitive #t) (teachpacks ()) (htdp-settings #(#t constructor repeating-decimal #f #t none #f ())))
+(require rackunit)
+;;DATA DEFINITIONS: None
+;;sum-large: number number number -> number
+;;GIVEN: three numbers 
+;;RETURNS: sum of 2 large numbers out of the 3 numbes given
+;;EXAMPLES:
+;;(sum-large 3 4 5) -> 9
+;;(sum-large 1 3 2) -> 5
+(define (sum-large num1 num2 num3)
+  (cond
+  [(>= num1 num2)
+    (cond
+       [(>= num2 num3) (+ num1 num2)]
+       [(>= num3 num2) (+ num1 num3)]
+       )]
+  [(>= num2 num1)
+   (cond
+     [(>= num1 num3) (+ num2 num1)]
+     [(>= num3 num1) (+ num3 num2)]
+     )]
+       
+    ))
+;;TESTS
+;;(check-equal? (sum-large 1 3 2) 5 "The sum should be 5")
+;;(check-equal? (sum-large 3 4 5) 9 "The sum should be 9")
+
